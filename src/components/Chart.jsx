@@ -9,7 +9,7 @@ const Chart = () => {
   const [financialHealth, setFinancialHealth] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/calculator")
+      .get("https://financial-health-60vf.onrender.com/api/v1/calculator")
       .then(function (response) {
         setFinancialHealth(response.data.data);
       })

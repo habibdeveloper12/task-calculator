@@ -29,13 +29,16 @@ const Calculator = () => {
   const { form } = useForm({
     defaultValues: { income: 0, expenses: 0, debts: 0, assets: 0 },
     onSubmit: async (values) => {
-      const response = await fetch("http://localhost:5000/api/v1/calculator", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        "https://financial-health-60vf.onrender.com/api/v1/calculator",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
