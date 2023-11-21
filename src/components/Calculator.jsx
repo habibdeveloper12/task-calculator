@@ -29,19 +29,17 @@ const Calculator = () => {
   const { form } = useForm({
     defaultValues: { income: 0, expenses: 0, debts: 0, assets: 0 },
     onSubmit: async (values) => {
-      const response = await fetch(
-        "http://localhost:3001/calculateFinancialHealth",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/v1/calculator", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
       const data = await response.json();
-      setFinancialHealth(data.financialHealth);
+      console.log(data);
+      setFinancialHealth(data.data);
     },
   });
 
@@ -49,12 +47,10 @@ const Calculator = () => {
     <div name="about" className="w-full my-32">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
-          <h2 className="text-5xl font-bold">
-            Trusted by developers across the world
-          </h2>
+          <h2 className="text-5xl font-bold">Financial Health Calculator</h2>
           <p className="text-3xl py-6 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            asperiores earum placeat veritatis dignissimos itaque.
+            please provide monthly income,expenses,debt,assets cost in that
+            field
           </p>
         </div>
 
@@ -85,11 +81,15 @@ const Calculator = () => {
                 name="assets"
                 type="number"
               />
-              <input type="submit" />
+              <input type="submit" value={"Submit Calculation"} />
             </form>
           </div>
         </div>
-        {financialHealth !== null && <p>Financial Health: {financialHealth}</p>}
+        {financialHealth !== null && (
+          <h2 className="text-3xl pt-8 text-black-300 uppercase text-center">
+            Financial Health Score: {financialHealth}%
+          </h2>
+        )}
       </div>
     </div>
   );

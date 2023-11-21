@@ -4,7 +4,9 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Pricing from "./components/Pricing";
 import Support from "./components/Support";
+
 import Calculator from "./components/Calculator";
+import Chart from "./components/Chart";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <Navbar />
       <Hero />
       <Calculator />
+      <Chart />
       <Support />
+
       <AllInOne />
       <Pricing />
       <Footer />
