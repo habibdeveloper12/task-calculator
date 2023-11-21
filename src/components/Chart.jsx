@@ -1,7 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { PhoneIcon, ArrowSmRightIcon } from "@heroicons/react/outline";
-import { ChipIcon, SupportIcon } from "@heroicons/react/solid";
-import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 import SingleChart from "./SingleChart";
 const Chart = () => {

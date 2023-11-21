@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-cool-form";
-
 import "./../styles.css";
 const Field = ({ label, id, ...rest }) => (
   <div>
@@ -9,21 +8,21 @@ const Field = ({ label, id, ...rest }) => (
   </div>
 );
 
-const Select = ({ label, id, children, ...rest }) => (
-  <div>
-    <label htmlFor={id}>{label}</label>
-    <select id={id} {...rest}>
-      {children}
-    </select>
-  </div>
-);
+// const Select = ({ label, id, children, ...rest }) => (
+//   <div>
+//     <label htmlFor={id}>{label}</label>
+//     <select id={id} {...rest}>
+//       {children}
+//     </select>
+//   </div>
+// );
 
-const Textarea = ({ label, id, ...rest }) => (
-  <div>
-    <label htmlFor={id}>{label}</label>
-    <textarea id={id} {...rest} />
-  </div>
-);
+// const Textarea = ({ label, id, ...rest }) => (
+//   <div>
+//     <label htmlFor={id}>{label}</label>
+//     <textarea id={id} {...rest} />
+//   </div>
+// );
 const Calculator = () => {
   const [financialHealth, setFinancialHealth] = useState(null);
   const { form } = useForm({
